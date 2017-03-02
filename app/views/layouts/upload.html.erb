@@ -1,0 +1,52 @@
+<h1>Result parsing</h1>
+
+<h2 style="color: darkseagreen">Success</h2>
+<% n = 0 %>
+<table class = "table table-bordered table-striped">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+  </tr>
+  <tr>
+
+    <% for e in success %>
+        <% n += 1 %>
+        <td><%= e.inspect %></td>
+        <% if n >= 3 %>
+            </tr><tr>
+    <% n = 0 %>
+        <%end%>
+
+
+
+    <% end %>
+    </tr>
+    </table>
+</br>
+<h2 style="color: darkred">Fail</h2>
+<% n = 0 %>
+<table class = "table table-bordered table-striped">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Error message</th>
+  </tr>
+  <tr>
+
+  <% for e in fail %>
+      <% n += 1 %>
+      <td><%= e.inspect %></td>
+      <% if n >= 4 %>
+          </tr><tr>
+          <% n = 0 %>
+      <%end%>
+
+
+
+  <% end %>
+  </tr>
+</table>
+
+<%= link_to "Acceuil", root_path, class: "btn btn-success btn-block" %>
